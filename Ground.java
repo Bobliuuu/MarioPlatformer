@@ -1,133 +1,97 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Ground here.
+ * Ground class for rendering and displaying the ground
+ * Subclass of Mover
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Jerry Zhu
+ * @version 1
  */
+
 public class Ground extends Mover
 {
-    private final GreenfootImage Stile = new GreenfootImage("stepping-tile.gif");
-    private final GreenfootImage FPlatform = new GreenfootImage("floating-platform.gif");
-    private final GreenfootImage Block = new GreenfootImage("block.gif");
+    // Instance variables
+    private final GreenfootImage Stile = new GreenfootImage("stepping-tile.gif"); // Greenfoot image for stepping tile object
+    private final GreenfootImage FPlatform = new GreenfootImage("floating-platform.gif"); // Greenfoot image for floating platform object
+    private final GreenfootImage Block = new GreenfootImage("block.gif"); // Greenfoot image for block tile object
     
     /**
-     * Ground constructor
+     * Constructor method for objects of class Ground
      */
     public Ground(int selection)
     {
-        this.selection = selection;
-        if(selection == 1)
+        this.selection = selection; // Set the value of the selection instance variable to the parameter selection
+        if(selection == 1) // If the value of selection is equal to 1
         {
-            setImage(Stile);
-            Stile.scale(50,50);
+            setImage(Stile); // Set the image to the stepping tile 
+            Stile.scale(50, 50); // Scale the stepping tile to 50 x 50 pixels
         }
-        else if ((selection == 2) || (selection == 3)){  
-            setImage(FPlatform);
-            FPlatform.scale(200, 35);  
-            this.speed = 2;
+        else if ((selection == 2) || (selection == 3)){ // If the value of selection is equal to 2 or 3
+            setImage(FPlatform); // Set the image to the floating platform
+            FPlatform.scale(200, 35); // Scale the floating platform to 200 x 35 pixels
+            this.speed = 2; // Set speed of moving platform to 2
         }
-        else if (selection == 4) { 
-            setImage(Block);
-            Block.scale(30,30);  
+        else if (selection == 4) { // If the value of selection is equal to 4
+            setImage(Block); // Set the image to the block tile
+            Block.scale(30, 30); // Scale the block tile to 30 x 30 pixels
         } 
-        else if  (selection == 5)
+        else if  (selection == 5) // If the value of selection is equal to 5
         {
-            setImage(FPlatform);
-            FPlatform.scale(200,35);  
-            this.speed = 2;
+            setImage(FPlatform); // Set the image to the floating platform 
+            FPlatform.scale(200, 35); // Scale the floating platform to 200 x 35 pixels
+            this.speed = 2; // Set speed of moving platform to 2
         }
     }
+   
     /**
      * Act - do whatever the Ground wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act() 
     {
-        if (selection == 1)
+        if (selection == 1) // If the value of selection is equal to 1 
         {
-            steppingTileCollisionDetection();
+            steppingTileCollisionDetection(); // Check collision for stepping tile with Mario object
         }
-        else if (selection == 2)
+        else if (selection == 2) // If the value of selection is equal to 2
         {
-            HFPlatformCollisionDetection();
+            // Do nothing for stationary platforms
         }
-        else if (selection == 3)
+        else if (selection == 3) // If the value of selection is equal to 3
         {
-            HFPlatformCollisionDetection();
-            movementCounter++;
-            moveHFPlatform();
+            movementCounter++; // Increment movement counter
+            moveHFPlatform(); // Move the horizontal platform left and right
         }
-        else if (selection == 4)
+        else if (selection == 4) // If the value of selection is equal to 4
         {
-            
+            // Do nothing for block tiles
         }
-    }
+         else if  (selection == 5) // If the value of selection is equal to 5
+        {
+            movementCounter++; // Increment movement counter
+            moveUpAndDown(); // Move the vertical platform up and down 
+        }
+    }    
+    
+    /**
+     * Detect collision with stepping tile object and player Mario object
+     */
     private void steppingTileCollisionDetection()
     {
-        Actor MarioLeft = getOneObjectAtOffset(27, 0, Player.class);
-        Actor MarioRight = getOneObjectAtOffset(-27, 0, Player.class);
-        Actor MarioHead = getOneObjectAtOffset(0, 50, Player.class);
-        if (MarioLeft != null)
+        Actor MarioLeft = getOneObjectAtOffset(10, 0, Mario.class); // Check collision if Mario hits the tile on the left side
+        Actor MarioRight = getOneObjectAtOffset(-10, 0, Mario.class); // Check collision if Mario hits the tile on the right side
+        Actor MarioHead = getOneObjectAtOffset(0, 60, Mario.class); // Check collision if Mario is hitting the tile from the top (jumping into it)
+        if (MarioLeft != null) // If Mario hits the tile on the left side
         {
-            MarioLeft.setLocation(MarioLeft.getX() + 7, MarioLeft.getY());
-            return;
+            MarioLeft.setLocation(MarioLeft.getX() + 7, MarioLeft.getY()); // Set Mario's location to the right by 7 pixels and push the player away from the tile
         }
-        else if (MarioRight != null)
+        else if (MarioRight != null) // If Mario hits the tile on the right side
         {
-            MarioRight.setLocation(MarioRight.getX() - 7, MarioRight.getY());
-            return;
+            MarioRight.setLocation(MarioRight.getX() - 7, MarioRight.getY()); // Set Mario's location to the left by 7 pixels and push the player away from the tile
         }
-        else if (MarioHead != null)
+        else if (MarioHead!= null) // If Mario hits the tile from the top
         {
-            MarioHead.setLocation(MarioHead.getX(), MarioHead.getY() + 10);
-            return;
-        }
-    }
-    private void HFPlatformCollisionDetection()
-    {
-        Actor MarioLeft = getOneObjectAtOffset(100, 0, Player.class);
-        Actor MarioRight = getOneObjectAtOffset(-102, 0, Player.class);
-        Actor MarioHeadLeft = getOneObjectAtOffset(-45, 35, Player.class);
-        Actor MarioHeadMid = getOneObjectAtOffset(0, 35, Player.class);
-        Actor MarioHeadRight = getOneObjectAtOffset(45, 35, Player.class);
-        Actor MarioHeadRight2 = getOneObjectAtOffset(75, 35, Player.class);
-        Actor MarioHeadLeft2 = getOneObjectAtOffset(-75, 35, Player.class);
-        if (MarioLeft != null)
-        {
-            MarioLeft.setLocation(MarioLeft.getX() + 7, MarioLeft.getY());
-            return;
-        }
-        else if (MarioRight != null)
-        {
-            MarioRight.setLocation(MarioRight.getX() - 7, MarioRight.getY());
-            return;
-        }
-        else if (MarioHeadLeft2 != null)
-        {
-            MarioHeadLeft2.setLocation(MarioHeadLeft2.getX(), MarioHeadLeft2.getY() + 10);
-            return;
-        }
-        else if (MarioHeadLeft != null)
-        {
-            MarioHeadLeft.setLocation(MarioHeadLeft.getX(), MarioHeadLeft.getY() + 10);
-            return;
-        }
-        else if (MarioHeadMid != null)
-        {
-            MarioHeadMid.setLocation(MarioHeadMid.getX(), MarioHeadMid.getY() + 10);
-            return;
-        }
-        else if (MarioHeadRight != null)
-        {
-            MarioHeadRight.setLocation(MarioHeadRight.getX(), MarioHeadRight.getY() + 10);
-            return;
-        }
-        else if (MarioHeadRight2 != null)
-        {
-            MarioHeadRight2.setLocation(MarioHeadRight2.getX(), MarioHeadRight2.getY() + 10);
-            return;
+            MarioHead.setLocation(MarioHead.getX() , MarioHead.getY() + 10); // Set Mario's location below by 10 pixels and push the player away from the tile
         }
     }
 }

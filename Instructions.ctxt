@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=Instructions
+comment0.text=\r\n\ Instructions\ class\ to\ display\ instructions\ when\ prompted\r\n\ Subclass\ of\ Screen\r\n\ \r\n\ @author\ Jerry\ Zhu\r\n\ @version\ December\ 2020\r\n
+comment1.params=
+comment1.target=Instructions()
+comment1.text=\r\n\ Constructor\ method\ for\ objects\ of\ class\ Instructions\r\n
+comment2.params=
+comment2.target=void\ act()
+comment2.text=\r\n\ Act\ -\ do\ whatever\ the\ Instructions\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
+numComments=3

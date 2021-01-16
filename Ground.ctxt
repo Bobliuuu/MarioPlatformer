@@ -1,14 +1,13 @@
 #BlueJ class context
 comment0.target=Ground
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Ground\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ Ground\ class\ for\ rendering\ and\ displaying\ the\ ground\r\n\ Subclass\ of\ Mover\r\n\ \r\n\ @author\ Jerry\ Zhu\r\n\ @version\ 1\r\n
 comment1.params=selection
 comment1.target=Ground(int)
-comment1.text=\r\n\ Ground\ constructor\r\n
+comment1.text=\r\n\ Constructor\ method\ for\ objects\ of\ class\ Ground\r\n
 comment2.params=
 comment2.target=void\ act()
 comment2.text=\r\n\ Act\ -\ do\ whatever\ the\ Ground\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
 comment3.params=
 comment3.target=void\ steppingTileCollisionDetection()
-comment4.params=
-comment4.target=void\ HFPlatformCollisionDetection()
-numComments=5
+comment3.text=\r\n\ Detect\ collision\ with\ stepping\ tile\ object\ and\ player\ Mario\ object\r\n
+numComments=4

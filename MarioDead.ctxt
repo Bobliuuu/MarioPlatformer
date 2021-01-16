@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=MarioDead
+comment0.text=\r\n\ MarioDead\ class\ for\ displaying\ and\ animating\ the\ dead\ Mario\ actor\r\n\ Subclass\ of\ Mario\r\n\ \r\n\ @author\ Jerry\ Zhu\r\n\ @version\ December\ 2020\r\n
+comment1.params=
+comment1.target=MarioDead()
+comment1.text=\r\n\ Constructor\ method\ for\ objects\ of\ class\ MarioDead\r\n
+comment2.params=
+comment2.target=void\ act()
+comment2.text=\r\n\ Act\ -\ do\ whatever\ the\ MarioDead\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
+comment3.params=
+comment3.target=void\ animateDeath()
+comment3.text=\r\n\ Animate\ Mario's\ death\ when\ prompted\r\n
+numComments=4
