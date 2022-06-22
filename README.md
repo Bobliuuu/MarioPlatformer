@@ -3,10 +3,6 @@ A Super Mario platformer game using the Greenfoot Mario Platformer!
 
 ![Title Screen](/Mario%20Platformer/images/titlescreen.gif)
 
-![Gameplay](Mario%20Platformer/images/gameplay.jpg)
-
-![Win Screen](Mario%20Platformer/images/winscreen.gif)
-
 ## Description
 Mario Platformer is a remake of the classic and beloved Super Mario franchise! The player Mario travels across multiple jam-packed levels, moving and avoiding enemies to beat the game. The game contains different types of enemies, platforms, and backgrounds for a fulfilling experience. The user interface is very well designed with different screens for simple and concise navigation. Read the tutorial to learn more about the game and how it works. Quench your nostalgia and play the Mario Platformer today! No matter how many times you play, you definitely won't regret it! 
 
